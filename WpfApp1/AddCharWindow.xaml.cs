@@ -54,12 +54,9 @@ namespace WpfApp1
             }
             
         }
-        private Border GridCreator(string CharacterPicture, string CharacterName)
+        private Grid GridCreator(string CharacterPicture, string CharacterName)
         {
-            Border border = new Border();
-            border.BorderThickness = new Thickness(1);
-            border.Margin = new Thickness(5);
-            border.BorderBrush = Brushes.Black;
+            
             Grid grid = new Grid();//creating grid
             grid.Margin = new Thickness(5);           
             grid.Visibility = Visibility.Visible;
@@ -68,6 +65,14 @@ namespace WpfApp1
             grid.RowDefinitions.Add(row1);
             grid.RowDefinitions.Add(row2);
             Image characterImage = new Image();//input images
+            Button button = new Button();
+            button.Height = grid.Height;
+            button.Width = grid.Width;
+            button.Background = null;
+            button.BorderBrush = Brushes.Black;
+            //button.Margin = new Thickness(5);
+            Grid.SetRow(button, 0);
+            Grid.SetRowSpan(button, 2);
             var charImage = new ImageSourceConverter().ConvertFromString(CharacterPicture) as ImageSource;//converting string with location into the source
             characterImage.Source = charImage;//image settings
             characterImage.Height = 60;
@@ -84,8 +89,8 @@ namespace WpfApp1
             Grid.SetRow(charName, 1);
             grid.Children.Add(characterImage);
             grid.Children.Add(charName);
-            border.Child = grid;
-            return border;
+            grid.Children.Add(button);
+            return grid;
 
         }
     }
