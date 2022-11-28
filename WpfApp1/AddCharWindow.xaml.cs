@@ -79,14 +79,11 @@ namespace WpfApp1
             characterImage.Visibility = Visibility.Visible;
             Grid.SetRow(characterImage, 0);//put iamges in place
             TextBlock charName = new TextBlock();
-            StackPanel stackPanel = new StackPanel();
             charName.Text = CharacterName;
-            stackPanel.HorizontalAlignment = HorizontalAlignment.Center;
-            stackPanel.Children.Add(charName);
-            Grid.SetRow(stackPanel, 1);
+            charName.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetRow(charName, 1);
             grid.Children.Add(characterImage);
-            grid.Children.Add(stackPanel);
+            grid.Children.Add(charName);
             border.Child = grid;
             return border;
 
