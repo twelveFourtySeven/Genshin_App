@@ -70,6 +70,9 @@ namespace WpfApp1
             button.Width = grid.Width;
             button.Background = null;
             button.BorderBrush = Brushes.Black;
+            Style style = new Style();
+            //style.Triggers.Add(Button.IsMouseDirectlyOverProperty);
+            //button.Style = new Style(Style.Triggers)
             //button.Margin = new Thickness(5);
             Grid.SetRow(button, 0);
             Grid.SetRowSpan(button, 2);
