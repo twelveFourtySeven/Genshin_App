@@ -54,46 +54,10 @@ namespace WpfApp1
             }
             
         }
-        private Grid GridCreator(string CharacterPicture, string CharacterName)
+        private Button GridCreator(string CharacterPicture, string CharacterName)
         {
-            
-            Grid grid = new Grid();//creating grid
-            grid.Margin = new Thickness(5);           
-            grid.Visibility = Visibility.Visible;
-            RowDefinition row1 = new RowDefinition();//rows for the grid
-            RowDefinition row2 = new RowDefinition();
-            grid.RowDefinitions.Add(row1);
-            grid.RowDefinitions.Add(row2);
-            Image characterImage = new Image();//input images
             Button button = new Button();
-            button.Height = grid.Height;
-            button.Width = grid.Width;
-            button.Background = null;
-            button.BorderBrush = Brushes.Black;
-            Style style = new Style();
-            //style.Triggers.Add(Button.IsMouseDirectlyOverProperty);
-            //button.Style = new Style(Style.Triggers)
-            //button.Margin = new Thickness(5);
-            Grid.SetRow(button, 0);
-            Grid.SetRowSpan(button, 2);
-            var charImage = new ImageSourceConverter().ConvertFromString(CharacterPicture) as ImageSource;//converting string with location into the source
-            characterImage.Source = charImage;//image settings
-            characterImage.Height = 60;
-            characterImage.Width = 60;
-            characterImage.Stretch = Stretch.Fill;
-            characterImage.VerticalAlignment = VerticalAlignment.Center;
-            characterImage.HorizontalAlignment = HorizontalAlignment.Center;
-            characterImage.Margin = new Thickness(5);
-            characterImage.Visibility = Visibility.Visible;
-            Grid.SetRow(characterImage, 0);//put iamges in place
-            TextBlock charName = new TextBlock();
-            charName.Text = CharacterName;
-            charName.HorizontalAlignment = HorizontalAlignment.Center;
-            Grid.SetRow(charName, 1);
-            grid.Children.Add(characterImage);
-            grid.Children.Add(charName);
-            grid.Children.Add(button);
-            return grid;
+            return button;
 
         }
     }

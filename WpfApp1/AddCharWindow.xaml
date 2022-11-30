@@ -6,6 +6,39 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="AddCharWindow" MinHeight="300" MinWidth="300">
+    <Window.Resources>
+        <ControlTemplate x:Key="charGrid" TargetType="Button">
+            <Grid Margin=" 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="charImage" Height="60" Width="60" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Source="{Binding source}" />
+                <TextBlock x:Name="charName" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding charName}" Grid.Row="1"/>
+                <Button Width="{Binding Grid.Width}" Height="{Binding Grid.Height}" BorderBrush="Black" Foreground="{x:Null}" Grid.RowSpan="2">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="{x:Null}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{x:Null}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
