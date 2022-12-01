@@ -28,8 +28,8 @@ namespace WpfApp1
         {
             InitializeComponent();
             var path = "Character_List.txt";//location
-            var lines = File.ReadLines(path);//amount of lines
             File.OpenRead(path);//opens the character list
+            var lines = File.ReadLines(path);//amount of lines
             var temp = File.ReadAllLines(path);//makes every line into a string, every character has a ddifferent number
             int count = 0;
             foreach (var line in lines)
@@ -92,7 +92,21 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e, string characterName)
         {
 
-            MessageBox.Show($"works");
+            var savePath = "Saves.txt";
+            
+            using StreamWriter sw = File.AppendText(savePath);
+            foreach(Characters characters in _characters)
+            {
+                
+                if (characterName == characters.Name)
+                {
+                    sw.WriteLine($"{characters.Name} {characters.Weapon} {characters.Talant}");
+                    MessageBox.Show($"{characters.Name} was added to the collection!");
+                    break;
+                }
+            }
+            
+            this.Close();
         }
     }
 }
