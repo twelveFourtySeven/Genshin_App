@@ -27,9 +27,7 @@ namespace WpfApp1
         public AddCharWindow()
         {
             InitializeComponent();
-            OpenFileDialog readFile = new OpenFileDialog();
             var path = "Character_List.txt";//location
-            readFile.FileName = path;
             var lines = File.ReadLines(path);//amount of lines
             File.OpenRead(path);//opens the character list
             var temp = File.ReadAllLines(path);//makes every line into a string, every character has a ddifferent number
