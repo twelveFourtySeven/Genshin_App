@@ -54,12 +54,8 @@ namespace WpfApp1
             }
             
         }
-        private Border GridCreator(string CharacterPicture, string CharacterName)
+        private Grid GridCreator(string characterPicture, string characterName)
         {
-            Border border = new Border();
-            border.BorderThickness = new Thickness(1);
-            border.Margin = new Thickness(5);
-            border.BorderBrush = Brushes.Black;
             Grid grid = new Grid();//creating grid
             grid.Margin = new Thickness(5);           
             grid.Visibility = Visibility.Visible;
@@ -68,7 +64,7 @@ namespace WpfApp1
             grid.RowDefinitions.Add(row1);
             grid.RowDefinitions.Add(row2);
             Image characterImage = new Image();//input images
-            var charImage = new ImageSourceConverter().ConvertFromString(CharacterPicture) as ImageSource;//converting string with location into the source
+            var charImage = new ImageSourceConverter().ConvertFromString(characterPicture) as ImageSource;//converting string with location into the source
             characterImage.Source = charImage;//image settings
             characterImage.Height = 60;
             characterImage.Width = 60;
@@ -78,15 +74,27 @@ namespace WpfApp1
             characterImage.Margin = new Thickness(5);
             characterImage.Visibility = Visibility.Visible;
             Grid.SetRow(characterImage, 0);//put iamges in place
+            Button button = new Button();//button creation
+            button.Click += (sender, EventArgs) => { Button_Click(sender, EventArgs, characterName); };
+            button.Foreground = null;
+            button.Background = null;
+            button.BorderBrush = Brushes.Black;
+            Grid.SetRowSpan(button, 2);
             TextBlock charName = new TextBlock();
-            charName.Text = CharacterName;
+            charName.Text = characterName;
             charName.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetRow(charName, 1);
             grid.Children.Add(characterImage);
             grid.Children.Add(charName);
-            border.Child = grid;
-            return border;
+            grid.Children.Add(button);
+            return grid;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e, string characterName)
+        {
+
+            MessageBox.Show($"works");
         }
     }
 }
