@@ -6,8 +6,23 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="AddCharWindow" MinHeight="300" MinWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/BackgroundMondstadt.jpg" Stretch="UniformToFill"/>
+        <Border Background="#aaffffff" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1" BorderBrush="White" MinWidth="350" MinHeight="350" MaxWidth="500" MaxHeight="500">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10">
+                <WrapPanel x:Name="CharacterDisplay">
+                </WrapPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
     <Window.Resources>
-        <ControlTemplate x:Key="charGrid" TargetType="Button">
+        <ControlTemplate x:Key="charGrid" x:Name="characterGrid" TargetType="Button">
             <Grid Margin=" 5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7*"/>
@@ -39,19 +54,4 @@
             </Grid>
         </ControlTemplate>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Image Source="/BackgroundMondstadt.jpg" Stretch="UniformToFill"/>
-        <Border Background="#aaffffff" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1" BorderBrush="White" MinWidth="350" MinHeight="350" MaxWidth="500" MaxHeight="500">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10">
-                <WrapPanel x:Name="CharacterDisplay">
-                </WrapPanel>
-            </ScrollViewer>
-        </Border>
-    </Grid>
 </Window>

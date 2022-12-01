@@ -56,7 +56,10 @@ namespace WpfApp1
         }
         private Button GridCreator(string CharacterPicture, string CharacterName)
         {
+            WpfApp1.AddCharWindow add = new WpfApp1.AddCharWindow();
+            
             Button button = new Button();
+            button.Content = add.Resources.OfType<ControlTemplate>;
             return button;
 
         }
