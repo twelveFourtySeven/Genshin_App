@@ -34,6 +34,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             myWindow.Show();
+            this.Hide();
         }
 
         private void characterList()
@@ -68,6 +69,8 @@ namespace WpfApp1
         private Grid characterGridCreator(string characterPicture, string characterName)
         {
             Grid grid = new Grid();
+            grid.MaxWidth = 150;
+            grid.MaxHeight = 75;
             grid.Margin = new Thickness(3);
             ColumnDefinition column1 = new ColumnDefinition();
             ColumnDefinition column2 = new ColumnDefinition();
@@ -76,6 +79,9 @@ namespace WpfApp1
             Image characterImage = new Image();//input images
             var charImage = new ImageSourceConverter().ConvertFromString(characterPicture) as ImageSource;//converting string with location into the source
             characterImage.Source = charImage;
+            characterImage.Margin = new Thickness(3);
+           // characterImage.Stretch = Stretch.UniformToFill;
+            //characterImage.Height = addCharButton.Height;
             Grid.SetColumn(characterImage,0);
             Button button = new Button();//button creation
             button.Click += (sender, EventArgs) => { Button_Click(sender, EventArgs, characterName); };
@@ -85,6 +91,7 @@ namespace WpfApp1
             Grid.SetColumnSpan(button, 2);
             TextBlock charName = new TextBlock();
             charName.Text = characterName;
+            charName.Margin = new Thickness(3);
             charName.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetColumn(charName, 1);
             grid.Children.Add(characterImage);
@@ -95,6 +102,11 @@ namespace WpfApp1
         private void Button_Click(object sender, EventArgs e, string characterName)
         {
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

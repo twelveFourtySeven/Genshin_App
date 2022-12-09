@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="150" MinWidth="300">
+        Title="MainWindow" MinHeight="150" MinWidth="300" Closed="Window_Closed">
     <Grid>
-        <Image Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/BackgroundMondstadt.jpg" >
+        <Image Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/BackgroundMondstadt.jpg" Grid.ColumnSpan="2" >
             <Image.Effect>
                 <BlurEffect/>
             </Image.Effect>
         </Image>
-        <Border Background="#aaffffff" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1" BorderBrush="White">
+        <Border Background="#aaffffff" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1" BorderBrush="White" MaxHeight="500">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -25,8 +25,8 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="1" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <ComboBox Text="Background" Background="{x:Null}" BorderBrush="LightGray" BorderThickness="1">
                         <ComboBoxItem Content="Mondstadt"/>
@@ -39,14 +39,16 @@
                 <Border BorderThickness="1" BorderBrush="LightGray">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Welcome, Traveler!" Margin="2"/>
                 </Border>
-                <Border Grid.Row="1" MinHeight="300" MinWidth="100" BorderThickness="1" BorderBrush="LightGray">
-                    <StackPanel x:Name="characterListStackPanel" >
-                        <Button Background="#FFF1E9E9" Content="+" BorderBrush="LightGray" BorderThickness="1" Margin="3" Foreground="#FF847F7F" FontSize="20" Click="Button_Click"/>
-                    </StackPanel>
+                <Border x:Name="characterSelecetionBorder" Grid.Row="1" MinHeight="300" MinWidth="100" BorderThickness="1" BorderBrush="LightGray">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="characterListStackPanel" >
+                            <Button x:Name="addCharButton" Background="#FFF1E9E9" Content="+" BorderBrush="LightGray" BorderThickness="1" Margin="3" Foreground="#FF847F7F" FontSize="20" Click="Button_Click"/>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Border>
                 <Grid Grid.Column="1" Grid.Row="1" MinHeight="300" MinWidth="300">
                 </Grid>
-                
+
 
             </Grid>
 

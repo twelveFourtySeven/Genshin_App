@@ -108,5 +108,10 @@ namespace WpfApp1
             
             this.Close();
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
