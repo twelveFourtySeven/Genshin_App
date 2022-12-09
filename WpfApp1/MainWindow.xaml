@@ -28,24 +28,25 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Text="Background" Background="{x:Null}" BorderBrush="#FFC5C5C5" BorderThickness="1">
+                    <ComboBox Text="Background" Background="{x:Null}" BorderBrush="LightGray" BorderThickness="1">
                         <ComboBoxItem Content="Mondstadt"/>
                         <ComboBoxItem Content="Liyue"/>
                         <ComboBoxItem Content="Inazuma"/>
                         <ComboBoxItem Content="Sumeru"/>
                     </ComboBox>
-                    <Button Grid.Column="1" Content="Settings" Background="{x:Null}" BorderBrush="#FFC5C5C5" BorderThickness="1"/>
+                    <Button Grid.Column="1" Content="Settings" Background="{x:Null}" BorderBrush="LightGray" BorderThickness="1"/>
                 </Grid>
-                <Border BorderThickness="1" BorderBrush="#FFC5C5C5">
+                <Border BorderThickness="1" BorderBrush="LightGray">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Welcome, Traveler!" Margin="2"/>
                 </Border>
-                <Border Grid.Row="1" MinHeight="300" MinWidth="100" BorderThickness="1" BorderBrush="#FFC5C5C5">
-                    <StackPanel >
-                        <Button Background="#FFF1E9E9" Content="+" BorderBrush="#FFC5C5C5" BorderThickness="1" Margin="3" Foreground="#FF847F7F" FontSize="20" Click="Button_Click"/>
+                <Border Grid.Row="1" MinHeight="300" MinWidth="100" BorderThickness="1" BorderBrush="LightGray">
+                    <StackPanel x:Name="characterListStackPanel" >
+                        <Button Background="#FFF1E9E9" Content="+" BorderBrush="LightGray" BorderThickness="1" Margin="3" Foreground="#FF847F7F" FontSize="20" Click="Button_Click"/>
                     </StackPanel>
                 </Border>
                 <Grid Grid.Column="1" Grid.Row="1" MinHeight="300" MinWidth="300">
                 </Grid>
+                
 
             </Grid>
 
